@@ -22,27 +22,24 @@ async function Program(){
     // 
     // ********************************************************************** 
     // 
-   let fruits = [];
-   let shouldLoop = true;
-while(shouldLoop) {
-   let userInput = await askQuestion("What colour is a banana? ");
-   for(let i = 0; i < fruits.length; i++){
-       if(fruits[i] == userInput) {
-       shouldLoop = false;
-        break;
-   }
-}
-if (shouldLoop) {
-    fruits.push(userInput);
-    else {
-        break;
+    let fruits = [];
+    let shouldLoop = true;
+    while(shouldLoop){
+        let userInput = await askQuestion("Please enter a fruit: ");
+        for(let i = 0; i < fruits.length; i++){
+            if(userInput == fruits[i]){
+                shouldLoop = false;
+            }
+        }
+        if (shouldLoop) {
+            fruits.push(userInput);
+        }
+    }
+
+    for (let i = 0; i < fruits.length; i++) {
+        console.log(fruits[i]);
     }
 }
-console.log(fruits);
-}
-  // fruits.push(userInput1);
-
-
 Program().then(() => {
     process.exit(0);
 });
